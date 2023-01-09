@@ -1,4 +1,4 @@
-package com.example.personal_system;
+package com.example.training_platform_h;
 /**
  * @author :Double-Hong
  * @date : 2022/11/21
@@ -18,15 +18,15 @@ import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler;
 // 代码自动生成器
 public class Generator {
     // 数据库连接字段配置
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/course?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSl=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/enterprise?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSl=true";
     private static final String JDBC_USER_NAME = "root";
     private static final String JDBC_PASSWORD = "BABAMAMA520wlkq";
 
     // 包名和模块名
-    private static final String PACKAGE_NAME = "com.example.personal_system";
+    private static final String PACKAGE_NAME = "com.example.training_platform_h";
 
     // 表名,多个表使用英文逗号分割
-    private static final String[] TBL_NAMES = {"address_book","financial_management","memo_of_schedule","personal_mission_plan","user"};
+    private static final String[] TBL_NAMES = {"course","course_ship","personal_info"};
 
     // 表名的前缀,从表生成代码时会去掉前缀
     private static final String TABLE_PREFIX = "tbl_";

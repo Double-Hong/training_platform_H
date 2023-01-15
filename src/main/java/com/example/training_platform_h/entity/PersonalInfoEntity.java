@@ -57,5 +57,9 @@ public class PersonalInfoEntity {
     @TableField("`password`")
     private String password;
 
+    @TableField("user_type")
+    private int userType;
 
+    @TableField("organization_id")
+    private String organizationId;
 }

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -18,6 +19,7 @@ import lombok.experimental.Accessors;
  * @author Double-Hong
  * @since 2023-01-15 11:31:10
  */
+@Data
 @Getter
 @Setter
 @Accessors(chain = true)

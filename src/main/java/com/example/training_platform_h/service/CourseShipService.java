@@ -8,7 +8,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  *  服务类
  * </p>
  *
- * @author Double-Hong
+ * @author Double-Hong and My-way
  * @since 2023-01-15 11:31:10
  */
 public interface CourseShipService extends IService<CourseShipEntity> {

@@ -22,6 +22,7 @@ class TrainingPlatformHApplicationTests {
     void test(){
         List<PersonalInfoEntity> list=personalInfoMapper.selectList(null);
         list.forEach(System.out::println);
+        System.out.println();
     }
 
 }

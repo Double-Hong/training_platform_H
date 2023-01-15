@@ -31,6 +31,7 @@ public class PersonalInfoController {
         System.out.println(personalInfo);
         List<PersonalInfoEntity> lists = personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>()
                 .eq("username", personalInfo.getUsername()).eq("password", personalInfo.getPassword()).eq("user_type",personalInfo.getUserType()));
+
         if (lists.size() != 0) {
             return 1;
         } else{

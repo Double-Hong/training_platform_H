@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/enterprise
+    url: jdbc:mysql://1.15.62.89:3306/enterprise
     username: root
-    password: BABAMAMA520wlkq
+    password: 256817
     type: com.alibaba.druid.pool.DruidDataSource
 
 mybatis-plus:

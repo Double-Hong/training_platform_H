@@ -18,9 +18,9 @@ import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler;
 // 代码自动生成器
 public class Generator {
     // 数据库连接字段配置
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/enterprise?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSl=true";
+    private static final String JDBC_URL = "jdbc:mysql://1.15.62.89:3306/enterprise?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSl=true";
     private static final String JDBC_USER_NAME = "root";
-    private static final String JDBC_PASSWORD = "BABAMAMA520wlkq";
+    private static final String JDBC_PASSWORD = "256817";
 
     // 包名和模块名
     private static final String PACKAGE_NAME = "com.example.training_platform_h";

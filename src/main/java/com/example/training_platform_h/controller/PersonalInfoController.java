@@ -27,14 +27,14 @@ public class PersonalInfoController {
     PersonalInfoMapper personalInfoMapper;
 
     @PostMapping("/checkUser")//用户登录检查密码是否正确
-    public String checkUser(@RequestBody PersonalInfoEntity personalInfo) {
+    public int checkUser(@RequestBody PersonalInfoEntity personalInfo) {
         System.out.println(personalInfo);
         List<PersonalInfoEntity> lists = personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>()
-                .eq("username", personalInfo.getUsername()).eq("password", personalInfo.getPassword()));
+                .eq("username", personalInfo.getUsername()).eq("password", personalInfo.getPassword()).eq("user_type",personalInfo.getUserType()));
         if (lists.size() != 0) {
-            return "登录成功!";
+            return 1;
         } else{
-            return "用户名或密码错误!";
+            return 0;
         }
 
     }

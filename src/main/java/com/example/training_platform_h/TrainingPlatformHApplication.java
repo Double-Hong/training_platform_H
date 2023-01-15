@@ -1,5 +1,4 @@
 package com.example.training_platform_h;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

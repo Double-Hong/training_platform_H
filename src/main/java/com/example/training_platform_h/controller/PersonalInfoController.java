@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * <p>
@@ -39,5 +40,12 @@ public class PersonalInfoController {
         }
 
     }
-
+  @PostMapping("/zhuceUser")//注册用户
+    public int zhuceUser(@RequestBody PersonalInfoEntity personinfo){
+      UUID uuid = UUID.randomUUID();
+      String id =uuid.toString();
+      personinfo.setId(id);
+      personinfo.setOrganizationId(null);
+      return personalInfoMapper.insert(personinfo);
+  }
 }

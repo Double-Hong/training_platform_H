@@ -46,6 +46,9 @@ public class PersonalInfoController {
       String id =uuid.toString();
       personinfo.setId(id);
       personinfo.setOrganizationId(null);
+      if (personinfo.getUsername()==null||personinfo.getPassword()==null){
+          return -1;
+      }
       return personalInfoMapper.insert(personinfo);
   }
 }

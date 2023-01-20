@@ -1,6 +1,7 @@
 package com.example.training_platform_h.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.training_platform_h.entity.PersonalInfoEntity;
 import com.example.training_platform_h.mapper.PersonalInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,4 +72,10 @@ public class PersonalInfoController {
         modify.setPassword(personalInfo.getPassword());
         return personalInfoMapper.updateById(modify);
   }
+    @GetMapping("/FindUserByUserName/{username}")//用username找出全部user信息
+    public PersonalInfoEntity FindUserByUserName(@PathVariable String username){
+        return personalInfoMapper.selectOne(Wrappers.<PersonalInfoEntity>lambdaQuery().eq(PersonalInfoEntity::getUsername,username));
+
+    }
+
 }

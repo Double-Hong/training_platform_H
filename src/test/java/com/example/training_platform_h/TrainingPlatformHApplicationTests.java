@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
+import java.util.UUID;
 
 @SpringBootTest
 class TrainingPlatformHApplicationTests {
@@ -22,6 +23,9 @@ class TrainingPlatformHApplicationTests {
     void test(){
         List<PersonalInfoEntity> list=personalInfoMapper.selectList(null);
         list.forEach(System.out::println);
+        UUID uuid = UUID.randomUUID();
+        String id =uuid.toString();
+        System.out.println(id);
         System.out.println();
     }
 

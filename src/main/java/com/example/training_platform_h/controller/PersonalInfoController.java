@@ -4,10 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.training_platform_h.entity.PersonalInfoEntity;
 import com.example.training_platform_h.mapper.PersonalInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -50,5 +47,22 @@ public class PersonalInfoController {
           return -1;
       }
       return personalInfoMapper.insert(personinfo);
+  }
+
+  @GetMapping("/getPersonalInfo/{id}")
+    public PersonalInfoEntity getPersonalInfo(@PathVariable String id){
+        return personalInfoMapper.selectById(id);
+  }
+
+  @PostMapping("/checkOldPassword")//修改密码检查原密码是否正确
+    public int checkOldPassword(@RequestBody PersonalInfoEntity personalInfo){
+        List<PersonalInfoEntity> lists = personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("id",personalInfo.getId())
+                .eq("password",personalInfo.getPassword()));
+        if (lists.size()!=0){
+            return 1;
+        }
+        else {
+            return 0;
+        }
   }
 }

@@ -65,4 +65,10 @@ public class PersonalInfoController {
             return 0;
         }
   }
+  @PostMapping("/modifyPassword")//修改密码
+    public int modifyPassword(@RequestBody PersonalInfoEntity personalInfo){
+        PersonalInfoEntity modify = personalInfoMapper.selectById(personalInfo.getId());
+        modify.setPassword(personalInfo.getPassword());
+        return personalInfoMapper.updateById(modify);
+  }
 }

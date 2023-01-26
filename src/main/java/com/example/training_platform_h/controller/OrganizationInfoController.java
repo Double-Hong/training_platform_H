@@ -1,6 +1,7 @@
 package com.example.training_platform_h.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.training_platform_h.entity.OrganizationInfoEntity;
 import com.example.training_platform_h.entity.PersonalInfoEntity;
 import com.example.training_platform_h.mapper.OrganizationInfoMapper;
 import com.example.training_platform_h.mapper.PersonalInfoMapper;
@@ -45,5 +46,11 @@ public class OrganizationInfoController {
         System.out.println(organizationInfoMapper.selectById(id));
         System.out.println("ssss");
         return organizationInfoMapper.selectById(id).getName();
+    }
+
+    @GetMapping("getOrganizationById/{id}")//根据机构ID获取机构信息
+    public OrganizationInfoEntity getOrganizationById(@PathVariable String id){
+        System.out.println(id);
+        return organizationInfoMapper.selectById(id);
     }
 }

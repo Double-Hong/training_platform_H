@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  * 
@@ -38,6 +40,15 @@ public class OrganizationInfoEntity {
 
     @TableField("email")
     private String email;
+
+    @TableField("introduction")
+    private String introduction;
+
+    @TableField("create_time")
+    private LocalDate createTime;
+
+    @TableField("entry_requirement")
+    private String entryRequirement;
 
 
 }

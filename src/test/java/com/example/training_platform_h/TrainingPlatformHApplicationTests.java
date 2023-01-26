@@ -1,6 +1,8 @@
 package com.example.training_platform_h;
 
+import com.example.training_platform_h.entity.OrganizationInfoEntity;
 import com.example.training_platform_h.entity.PersonalInfoEntity;
+import com.example.training_platform_h.mapper.OrganizationInfoMapper;
 import com.example.training_platform_h.mapper.PersonalInfoMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +17,17 @@ class TrainingPlatformHApplicationTests {
     @Autowired
     PersonalInfoMapper personalInfoMapper;
 
+    @Autowired
+    OrganizationInfoMapper organizationInfoMapper;
+
     @Test
     void contextLoads() {
     }
 
     @Test
-    void test(){
-        List<PersonalInfoEntity> list=personalInfoMapper.selectList(null);
-        list.forEach(System.out::println);
+    void test() {
         UUID uuid = UUID.randomUUID();
-        String id =uuid.toString();
+        String id = uuid.toString();
         System.out.println(id);
         System.out.println();
     }

@@ -91,8 +91,8 @@ public class PersonalInfoController {
     }
 
     @GetMapping("/getStudentsInfoByOrganizationId/{organizationId}")//通过机构ID获取学员信息
-    public List<PersonalInfoEntity> getStudentsInfoByOrganizationId(@PathVariable String organizationId){
-        return personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("organization_id",organizationId).eq("user_type",3));
+    public List<PersonalInfoEntity> getStudentsInfoByOrganizationId(@PathVariable String organizationId) {
+        return personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("organization_id", organizationId).eq("user_type", 3));
     }
 }
 

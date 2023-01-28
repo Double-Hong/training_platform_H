@@ -81,8 +81,18 @@ public class PersonalInfoController {
     }
 
     @PostMapping("/modifyInfoById")//机构管理员修改个人信息
-    public int modifyInfoById(@RequestBody PersonalInfoEntity personalInfo){
+    public int modifyInfoById(@RequestBody PersonalInfoEntity personalInfo) {
         return personalInfoMapper.updateById(personalInfo);
     }
 
+    @GetMapping("/getInfoByOrganizationId/{organizationId},{type}")//通过机构ID获取机构管理员信息
+    public List<PersonalInfoEntity> getInfoByOrganizationId(@PathVariable String organizationId, @PathVariable String type) {
+        return personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("organization_id", organizationId).eq("user_type", type));
+    }
+
+    @GetMapping("/getStudentsInfoByOrganizationId/{organizationId}")//通过机构ID获取学员信息
+    public List<PersonalInfoEntity> getStudentsInfoByOrganizationId(@PathVariable String organizationId){
+        return personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("organization_id",organizationId).eq("user_type",3));
+    }
 }
+

@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -16,28 +15,30 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author Double-Hong and My-way
- * @since 2023-01-15 11:31:10
+ * @author Double-Hong
+ * @since 2023-01-29 11:41:26
  */
-@Data
 @Getter
 @Setter
 @Accessors(chain = true)
-@TableName("course")
-@ApiModel(value = "CourseEntity对象", description = "")
-public class CourseEntity {
+@TableName("train_info")
+@ApiModel(value = "TrainInfoEntity对象", description = "")
+public class TrainInfoEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     private String id;
 
-    @TableField("`name`")
-    private String name;
+    @TableField("training_objectives")
+    private String trainingObjectives;
 
-    @TableField("`description`")
-    private String description;
+    @TableField("training_content")
+    private String trainingContent;
 
-    @TableField("org_id")
-    private String org_id;
+    @TableField("training_scoring_criteria")
+    private String trainingScoringCriteria;
+
+    @TableField("organization_id")
+    private String organizationId;
 
 
 }

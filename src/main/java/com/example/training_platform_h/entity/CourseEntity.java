@@ -37,7 +37,7 @@ public class CourseEntity {
     private String description;
 
     @TableField("org_id")
-    private String org_id;
+    private String orgId;
 
 
 }

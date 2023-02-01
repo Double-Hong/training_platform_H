@@ -38,6 +38,22 @@ public class PersonalInfoController {
         }
 
     }
+//  @PostMapping("/zhuceUser")//注册用户
+//    public int zhuceUser(@RequestBody PersonalInfoEntity personinfo){
+//      UUID uuid = UUID.randomUUID();
+//      String id =uuid.toString();
+//      personinfo.setId(id);
+//      personinfo.setOrganizationId(null);
+//      if (personinfo.getUsername()==null||personinfo.getPassword()==null){
+//          return -1;
+//      }
+//      return personalInfoMapper.insert(personinfo);
+//  }
+//  @GetMapping("/FindUserByUserName/{username}")//用username找出全部user信息
+//    public PersonalInfoEntity FindUserByUserName(@PathVariable String username){
+//      return personalInfoMapper.selectOne(Wrappers.<PersonalInfoEntity>lambdaQuery().eq(PersonalInfoEntity::getUsername,username));
+//
+//  }
 
     @PostMapping("/zhuceUser")//注册用户
     public int zhuceUser(@RequestBody PersonalInfoEntity personinfo) {
@@ -51,7 +67,7 @@ public class PersonalInfoController {
         return personalInfoMapper.insert(personinfo);
     }
 
-    @GetMapping("/getPersonalInfo/{id}")
+    @GetMapping("/getPersonalInfo/{id}")//通过id得到学员的全部信息
     public PersonalInfoEntity getPersonalInfo(@PathVariable String id) {
         return personalInfoMapper.selectById(id);
     }

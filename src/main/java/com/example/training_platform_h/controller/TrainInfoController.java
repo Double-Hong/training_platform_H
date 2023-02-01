@@ -1,7 +1,10 @@
 package com.example.training_platform_h.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.example.training_platform_h.entity.TrainInfoEntity;
+import com.example.training_platform_h.mapper.TrainInfoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -14,5 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/train-info-entity")
 public class TrainInfoController {
+      @Autowired
 
+    TrainInfoMapper trainInfoMapper;
+
+      @GetMapping("/getTrainInfoById/{id}")//id是机构id
+    public TrainInfoEntity  getAllTrainInfoById (@PathVariable  String id){
+
+          return trainInfoMapper.selectOne(Wrappers.<TrainInfoEntity>lambdaQuery().eq(TrainInfoEntity::getOrganizationId,id));
+      }
 }

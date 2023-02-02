@@ -110,5 +110,10 @@ public class PersonalInfoController {
     public List<PersonalInfoEntity> getStudentsInfoByOrganizationId(@PathVariable String organizationId) {
         return personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("organization_id", organizationId).eq("user_type", 3));
     }
+
+    @GetMapping("/deleteStudentById/{studentId}")
+    public int deleteStudentById(@PathVariable String studentId){
+        return personalInfoMapper.deleteById(studentId);
+    }
 }
 

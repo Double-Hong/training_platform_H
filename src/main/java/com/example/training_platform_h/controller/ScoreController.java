@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author Double-Hong
@@ -20,22 +20,23 @@ public class ScoreController {
 
     @Autowired
     ScoreMapper scoreMapper;
-            @GetMapping ("getScoreByEidAndPersonInfoId/{eid},{pid}")
-    public Number getScoreByEidAndPersonInfoId(@PathVariable String eid,@PathVariable String pid){
-               if (scoreMapper.selectOne(Wrappers.<ScoreEntity>lambdaQuery().eq(ScoreEntity::getExaminationId,eid).eq(ScoreEntity::getPersonInfoId,pid))==null)
-                   return -1;
-               else {
-                return scoreMapper.selectOne(Wrappers.<ScoreEntity>lambdaQuery().eq(ScoreEntity::getExaminationId,eid).eq(ScoreEntity::getPersonInfoId,pid)).getScore() ;
-               }
-            }
-            @PostMapping("setScoreByEidAndPersonInfo")
-    public int setScoreByEidAndPersonInfoId(@RequestBody ScoreEntity score){
-           scoreMapper.insert(score);
+
+    @GetMapping("getScoreByEidAndPersonInfoId/{eid},{pid}")
+    public Number getScoreByEidAndPersonInfoId(@PathVariable String eid, @PathVariable String pid) {
+        if (scoreMapper.selectOne(Wrappers.<ScoreEntity>lambdaQuery().eq(ScoreEntity::getExaminationId, eid).eq(ScoreEntity::getPersonInfoId, pid)) == null)
+            return -1;
+        else {
+            return scoreMapper.selectOne(Wrappers.<ScoreEntity>lambdaQuery().eq(ScoreEntity::getExaminationId, eid).eq(ScoreEntity::getPersonInfoId, pid)).getScore();
+        }
+    }
+
+    @PostMapping("setScoreByEidAndPersonInfo")
+    public int setScoreByEidAndPersonInfoId(@RequestBody ScoreEntity score) {
+        scoreMapper.insert(score);
 //            ScoreEntity result=scoreMapper.selectById(score.getPersonInfoId());
 //              result.setScore(score.getScore());
-                 if (scoreMapper.selectOne(Wrappers.<ScoreEntity>lambdaQuery().eq(ScoreEntity::getExaminationId,score.getExaminationId()).eq(ScoreEntity::getPersonInfoId,score.getPersonInfoId())).getScore()!=null){
-               return 1;
-           }
-           else return 0;
-            }
+        if (scoreMapper.selectOne(Wrappers.<ScoreEntity>lambdaQuery().eq(ScoreEntity::getExaminationId, score.getExaminationId()).eq(ScoreEntity::getPersonInfoId, score.getPersonInfoId())).getScore() != null) {
+            return 1;
+        } else return 0;
+    }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author Double-Hong and My-way
@@ -27,8 +27,8 @@ public class CourseController {
     CourseMapper courseMapper;
 
     @GetMapping("/getCourseByOrganizationId/{OrganizationId}")
-    public List<CourseEntity> getCourseByOrganizationId(@PathVariable String OrganizationId){
-        System.out.println(courseMapper.selectList(new QueryWrapper<CourseEntity>().eq("org_id",OrganizationId)));
-        return courseMapper.selectList(new QueryWrapper<CourseEntity>().eq("org_id",OrganizationId));
+    public List<CourseEntity> getCourseByOrganizationId(@PathVariable String OrganizationId) {
+        System.out.println(courseMapper.selectList(new QueryWrapper<CourseEntity>().eq("org_id", OrganizationId)));
+        return courseMapper.selectList(new QueryWrapper<CourseEntity>().eq("org_id", OrganizationId));
     }
 }

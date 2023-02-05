@@ -111,9 +111,31 @@ public class PersonalInfoController {
         return personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("organization_id", organizationId).eq("user_type", 3));
     }
 
-    @GetMapping("/deleteStudentById/{studentId}")
-    public int deleteStudentById(@PathVariable String studentId){
+    @GetMapping("/deleteStudentById/{studentId}")//删除学员
+    public int deleteStudentById(@PathVariable String studentId) {
         return personalInfoMapper.deleteById(studentId);
+    }
+
+    @GetMapping("/resetPasswordById/{id}")//重置密码
+    public int resetPasswordById(@PathVariable String id) {
+        PersonalInfoEntity personalInfo = personalInfoMapper.selectOne(new QueryWrapper<PersonalInfoEntity>().eq("id", id));
+        personalInfo.setPassword("123456");
+        return personalInfoMapper.updateById(personalInfo);
+    }
+
+    @GetMapping("/findStudent/{search}/{orgId}")//查找学员
+    public List<PersonalInfoEntity> findStudent(@PathVariable String orgId, @PathVariable String search) {
+        return personalInfoMapper.selectList(new QueryWrapper<PersonalInfoEntity>().eq("organization_id", orgId).and(i -> i.like("username", search).or().like("name", search)));
+    }
+
+    @GetMapping("getAlladministratorByType/{type}")
+    public List<PersonalInfoEntity> getAlladministratorByType(@PathVariable int type) {
+        return personalInfoMapper.selectList(Wrappers.<PersonalInfoEntity>lambdaQuery().eq(PersonalInfoEntity::getUserType, type));
+    }
+
+    @GetMapping("findadministrator/{username},{type}")
+    public List<PersonalInfoEntity> findadministrator(@PathVariable String username, @PathVariable int type) {
+        return personalInfoMapper.selectList(Wrappers.<PersonalInfoEntity>lambdaQuery().eq(PersonalInfoEntity::getUserType, type).like(PersonalInfoEntity::getUsername, username));
     }
 }
 

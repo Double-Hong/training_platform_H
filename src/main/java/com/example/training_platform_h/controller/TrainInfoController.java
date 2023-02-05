@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author Double-Hong
@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/train-info-entity")
 public class TrainInfoController {
-      @Autowired
+    @Autowired
 
     TrainInfoMapper trainInfoMapper;
 
-      @GetMapping("/getTrainInfoById/{id}")//id是机构id
-    public TrainInfoEntity  getAllTrainInfoById (@PathVariable  String id){
+    @GetMapping("/getTrainInfoById/{id}")//id是机构id
+    public TrainInfoEntity getAllTrainInfoById(@PathVariable String id) {
 
-          return trainInfoMapper.selectOne(Wrappers.<TrainInfoEntity>lambdaQuery().eq(TrainInfoEntity::getOrganizationId,id));
-      }
+        return trainInfoMapper.selectOne(Wrappers.<TrainInfoEntity>lambdaQuery().eq(TrainInfoEntity::getOrganizationId, id));
+    }
 }
